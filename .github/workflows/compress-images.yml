@@ -1,0 +1,28 @@
+name: Compress Images
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 2'
+jobs:
+  build:
+    name: calibreapp/image-actions
+    if: github.repository == 'jenkins-infra/jenkins.io'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Compress Images
+        id: calibre
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+          ignorePaths: 'content/images/avatars/**'
+      - name: Create New Pull Request If Needed
+        if: steps.calibre.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Compress Images
+          branch-suffix: timestamp
+          commit-message: Compress Images
+          body: ${{ steps.calibre.outputs.markdown }}

@@ -1,0 +1,23 @@
+name: Link Checker
+
+on:
+  workflow_dispatch:
+    branches: [ link-checker ]
+
+jobs:
+  asciidoc-link-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - run: npm install -g asciidoc-link-check
+    - run: find . -name \*.adoc -exec asciidoc-link-check -c config.json {} \;
+    - name: Commit broken links output
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_user_name: github-actions[bot]
+        commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+        commit_message: 'Publish output'

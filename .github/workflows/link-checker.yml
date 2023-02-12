@@ -2,7 +2,6 @@ name: Link Checker
 
 on:
   workflow_dispatch:
-    branches: [ link-checker ]
 
 jobs:
   asciidoc-link-check:
@@ -14,7 +13,7 @@ jobs:
       with:
         node-version: 18
     - run: npm install -g asciidoc-link-check
-    - run: find . -name \*.adoc -exec asciidoc-link-check -c config.json {} \;
+    - run: find . -name \*.adoc -exec asciidoc-link-check -c config.json {} \; > output.txt
     - name: Commit broken links output
       uses: stefanzweifel/git-auto-commit-action@v4
       with:

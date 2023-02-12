@@ -13,9 +13,4 @@ jobs:
       with:
         node-version: 18
     - run: npm install -g asciidoc-link-check
-    - run: find . -name \*.adoc -exec asciidoc-link-check -c config.json {} \; > output.txt
-    - name: Archive output.txt
-      uses: actions/upload-artifact@v3
-      with:
-        name: output.txt
-        path: output.txt
+    - run: find . -name \*.adoc -exec asciidoc-link-check -c config.json {} \;

@@ -14,9 +14,8 @@ jobs:
         node-version: 18
     - run: npm install -g asciidoc-link-check
     - run: find . -name \*.adoc -exec asciidoc-link-check -c config.json {} \; > output.txt
-    - name: Commit broken links output
-      uses: stefanzweifel/git-auto-commit-action@v4
+    - name: Archive output.txt
+      uses: actions/upload-artifact@v3
       with:
-        commit_user_name: github-actions[bot]
-        commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-        commit_message: 'Publish output'
+        name: output.txt
+        path: output.txt

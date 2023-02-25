@@ -1,7 +1,7 @@
 {
 	"ignorePatterns": [{
 		"pattern": "^http://localhost:",
-		"pattern": "^https://wiki.jenkins.io",
-		"pattern": "^http://wiki.jenkins.io"
+		"pattern": "^https://wiki.jenkins.io/display/",
+		"pattern": "^http://wiki.jenkins.io/display/"
 	}]
 }

@@ -1,13 +1,3 @@
-= jenkins.io
+https://gist.githubusercontent.com/NotMyFault/024e06533c9f15089a8902dc409a179b/raw/a43c8953f5804faf95094afa48e72fabb20c8648/broken-links-jenkins.io.txt
 
-image:https://badges.gitter.im/jenkinsci/docs.svg[link="https://app.gitter.im/#/room/#jenkins/docs:matrix.org"]
-
-This repository powers the link:https://jenkins.io/[Jenkins website].
-This uses link:https://github.com/awestruct/awestruct[Awestruct]
-with link:https://asciidoctor.org[Asciidoctor] under the hood to provide a very
-useful and compelling web presence for the link:https://jenkins.io/[Jenkins automation server].
-
-== Contributing
-
-If you're interested in contributing to the site, please see our
-link:https://github.com/jenkins-infra/jenkins.io/blob/master/CONTRIBUTING.adoc[Contributing document]
+Broken links
